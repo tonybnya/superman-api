@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, Depends
-from typing import Annotated, List
+from typing import Annotated, Dict, List
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from database import SessonLocal, engine
@@ -69,6 +69,14 @@ db_dependency = Annotated[Session, Depends(get_db)]
 # Create the database (if not exist yet) and the tables
 # when the FastAPI is launched
 model_products.Base.metadata.create_all(bind=engine)
+
+
+@app.get("/", response_model=Dict[str, str])
+async def index():
+    """
+    GET / endpoint
+    """
+    return {"message": "Superman Store API"}
 
 
 @app.post("/products/", response_model=ProductModel)
