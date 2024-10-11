@@ -13,14 +13,16 @@ app = FastAPI()
 # Define the app that can call our FastAPI application
 origins: list[str] = [
     'http://localhost:5173',
-    'http://localhost:8000',
     'https://superman-store.onrender.com'
 ]
 
 # Allow the origins defined to pass the middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*']
 )
 
 
