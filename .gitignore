@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual Environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Pytest cache
+.pytest_cache/
+
+# Mypy cache
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+*.txt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Alembic migration files
+alembic/versions/
+
+# MacOS specific files
+.DS_Store
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+
+# Coverage reports
+htmlcov/
+.coverage
+.cache
+coverage.xml
+
+# Pip related files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Uvicorn log
+uvicorn.log
+
+# Python wheel files
+*.whl
