@@ -89,3 +89,16 @@ async def update_product(product_id: int, updated_product: ProductBase, db: Sess
     db.commit()
     db.refresh(product)
     return product
+
+
+@router.delete("/{product_id}", response_model=dict[str, str])
+async def delete_product(product_id: int, db: Session = Depends(get_db)):
+    """
+    DELETE /products/{product_id} endpoint to delete a product by its ID.
+    """
+    product = db.query(ProductModel).filter(ProductModel.id == product_id).first()
+    if product is None:
+        raise HTTPException(status_code=404, detail="Product not found")
+    db.delete(product)
+    db.commit()
+    return {"message": "Product successfully deleted"}
