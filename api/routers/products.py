@@ -46,7 +46,7 @@ class Product(ProductBase):
 @router.post("/", response_model=Product)
 async def create_product(product: ProductBase, db: Session = Depends(get_db)):
     """
-    POST /products/ endpoint
+    POST /products/ endpoint to create a product.
     """
     db_product = ProductModel(**product.dict())
     db.add(db_product)
@@ -59,7 +59,7 @@ async def create_product(product: ProductBase, db: Session = Depends(get_db)):
 @router.get("/", response_model=List[Product])
 async def get_products(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     """
-    GET /products endpoint
+    GET /products endpoint to get all the products.
     """
     products = db.query(ProductModel).offset(skip).limit(limit).all()
     return products
