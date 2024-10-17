@@ -21,6 +21,6 @@ class Product(Base):
     in_stock = Column(Boolean, default=True)
 
     # Relationships
-    sales = relationship("Sale", back_populates="product")
-    reviews = relationship("Review", back_populates="product")
+    purchases = relationship("Purchase", back_populates="product")
+    comments = relationship("Comment", back_populates="product")
     ratings = relationship("Rating", back_populates="product")
