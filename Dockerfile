@@ -23,6 +23,3 @@ COPY superman.db /api/superman.db
 # --host 0.0.0.0: Bind socket to all network interfaces (makes the server accessible from outside the container)
 # --port 80: Listen on port 80 inside the container
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "80"]
-
-# Set the command to run the application using fastapi
-# CMD ["fastapi", "run", "api/main.py", "--port", "80"]
