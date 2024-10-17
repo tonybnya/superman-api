@@ -7,9 +7,7 @@ from api.dependencies import Base
 
 
 class Product(Base):
-    """
-    Model for a product.
-    """
+    """Model for a product."""
     # Name of the table in the database
     __tablename__ = 'products'
 
@@ -23,6 +21,6 @@ class Product(Base):
     in_stock = Column(Boolean, default=True)
 
     # Relationships
-    purchases = relationship("Purchase", back_populates="products")
-    comments = relationship("Comment", back_populates="products")
-    ratings = relationship("Rating", back_populates="products")
+    sales = relationship("Sale", back_populates="product")
+    reviews = relationship("Review", back_populates="product")
+    ratings = relationship("Rating", back_populates="product")
