@@ -30,7 +30,8 @@ class Delivery(DeliveryBase):
 
     class Config:
         """Provide configurations to Pydantic."""
-        orm_mode = True
+        # orm_mode = True
+        from_attributes = True
 
 
 # Create a new delivery
