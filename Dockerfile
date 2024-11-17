@@ -18,6 +18,10 @@ COPY . .
 # Copy the SQLite database file into the working directory inside the container
 COPY superman.db /api/superman.db
 
+# Run Alembic migrations during the Docker container startup
+# This ensures the database schema is up-to-date with the latest migrations
+RUN alembic upgrade head
+
 # Set the command to run the application using uvicorn
 # "main:app" tells uvicorn to look for an object called app in a module named main (main.py)
 # --host 0.0.0.0: Bind socket to all network interfaces (makes the server accessible from outside the container)
